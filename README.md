@@ -30,6 +30,36 @@ Finally, execute the project with the command:
 npm run dev
 ```
 
+## Concepts
+
+### Components and Properties
+
+A component is a function that acts like a complex html tag. It can receive properties, and it returns a piece of html (+javascript) code.
+
+```jsx
+/* Post.jsx */
+export function Post(props) {
+  return (
+    <div>
+      <strong>{props.author}</strong>
+      <p>{props.content}</p>
+    </div>
+  )
+}
+
+/* App.jsx */
+import { Post } from './Post'
+
+export function App() {
+  return(
+    <div>
+      <Post author="Me" content="Whatever I want to say">
+      <Post author="You" content="Whatever you want to say">
+    </div>
+  )
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway
