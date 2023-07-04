@@ -1,4 +1,7 @@
 SHELL=/bin/bash
 install:
 	sudo apt update
-	yarn install
+	npm install
+
+dev:
+	npm run dev
