@@ -60,6 +60,27 @@ export function App() {
 }
 ```
 
+### CSS Modules
+
+```css
+/* src/App.module.css */
+.danger {
+  background: red;
+}
+```
+
+```jsx
+import styles from './App.module.css';
+
+export function App() {
+  return (
+    <div styles={styles.danger}>
+      <p>This paragraph has a red background</p>
+    </div>
+  )
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway
