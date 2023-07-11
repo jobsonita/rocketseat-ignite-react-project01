@@ -122,7 +122,8 @@
 				"EditorConfig.EditorConfig",
 				"mikestead.dotenv",
 				"eamodio.gitlens",
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"clinyong.vscode-css-modules"
 			]
 		}
 	}
