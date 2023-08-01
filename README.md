@@ -81,6 +81,29 @@ export function App() {
 }
 ```
 
+### Iteration
+
+```jsx
+import { Post } from './Post'
+
+const posts = [
+  { author: 'Me', content: 'Whatever I want to say' },
+  { author: 'You', content: 'Whatever you want to say' },
+]
+
+export function App() {
+  return(
+    <div>
+      {posts.map(post => {
+        return (
+          <Post author={post.author} content={post.content}>
+        );
+      })}
+    </div>
+  )
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway
