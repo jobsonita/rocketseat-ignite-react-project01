@@ -178,6 +178,36 @@ function Parent() {
 }
 ```
 
+### Immutability
+
+We should never change the variables directly (like the `list` below). Instead, we create a new list and use the `setList` method to update the state of our `list` variable.
+
+```jsx
+import { useState } from 'react'
+
+export function App() {
+  const [list, setList] = useState([1, 2, 3]);
+
+  function handleClick() {
+    const newList = [...list, list.length + 1];
+
+    setList(newList);
+  }
+
+  return(
+    <div>
+      <ul>
+        {list.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <br />
+      <button type="button" onClick={handleClick} />
+    </div>
+  )
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway

@@ -33,7 +33,9 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function deleteComment(index) {
-    console.log("Deletando comentário " + comments.find((_, idx) => idx === index));
+    const commentsWithoutDeletedOne = comments.filter((_, idx) => idx !== index);
+
+    setComments(commentsWithoutDeletedOne);
   }
 
   return (
