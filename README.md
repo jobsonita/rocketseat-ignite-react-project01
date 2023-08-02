@@ -104,6 +104,28 @@ export function App() {
 }
 ```
 
+### State
+
+```jsx
+import { useState } from 'react'
+
+export function App() {
+  const [value, setValue] = useState('');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return(
+    <div>
+      <p>Value: {value}</p>
+      <br />
+      <input type="text" onChange={handleChange} />
+    </div>
+  )
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway
