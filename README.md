@@ -104,6 +104,29 @@ export function App() {
 }
 ```
 
+#### Keys
+
+Keys should be unique to each item in the lists, because they're often used for caching purposes.
+
+```jsx
+const posts = [
+  { id: 1, author: 'Me', content: 'Whatever I want to say' },
+  { id: 2, author: 'You', content: 'Whatever you want to say' },
+]
+
+export function App() {
+  return(
+    <div>
+      {posts.map(post => {
+        return (
+          <Post key={post.id} author={post.author} content={post.content}>
+        );
+      })}
+    </div>
+  )
+}
+```
+
 ### State
 
 ```jsx
