@@ -32,6 +32,10 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText(event.target.value);
   }
 
+  function deleteComment(index) {
+    console.log("Deletando comentário " + comments.find((_, idx) => idx === index));
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -73,7 +77,7 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={styles.commentList}>
         {comments.map((comment, index) => {
-          return <Comment key={index} content={comment} />;
+          return <Comment key={index} content={{ comment, id: index }} onDeleteComment={deleteComment} />;
         })}
       </div>
     </article>

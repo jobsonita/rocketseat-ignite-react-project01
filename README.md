@@ -149,6 +149,35 @@ export function App() {
 }
 ```
 
+### Communication between components
+
+```jsx
+function Child({ onMyChange }) {
+  function handleChange(event) {
+    onMyChange(event.target.value);
+  }
+
+  return (
+    <input type="text" onChange={handleChange}>
+  );
+}
+
+function Parent() {
+  const [value, setValue] = useState('');
+
+  function handleMyChange(value) {
+    setValue(value);
+  }
+
+  return (
+    <>
+      <p>{value}</p>
+      <Child onMyChange={handleMyChange} />
+    </>
+  );
+}
+```
+
 ## Common Problems
 
 ### 502 Bad Gateway
