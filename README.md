@@ -149,6 +149,63 @@ export function App() {
 }
 ```
 
+#### Closure
+
+In React, queuing state update function calls won't affect the state in the current context.
+
+```jsx
+import { useState } from 'react
+
+export function App() {
+  const [counter, setCounter] = useState(0);
+
+  function incrementCounter() {
+    setCounter(counter + 1);
+    console.log(counter);
+    setCounter(counter + 1);
+    console.log(counter);
+    setCounter(counter + 1);
+    console.log(counter);
+    // The same value of counter will be printed to the console 3 times
+    // and the next value displayed on screen will just be increased by 1.
+  }
+
+  return (
+    <div>
+      <p>Count: {counter}</p>
+      <br />
+      <button type="button" onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+```
+
+However, we can pass functions to state update functions. These functions receive the latest state as a parameter, allowing us to queue multiple calls to the state update function, like below:
+
+```jsx
+import { useState } from 'react
+
+export function App() {
+  const [counter, setCounter] = useState(0);
+
+  function incrementCounter() {
+    setCounter(counter => counter + 1);
+    setCounter(counter => counter + 1);
+    setCounter(counter => counter + 1);
+    // Each call will increment the latest state of the counter by 1
+    // The next value displayed on screen will be increased by 3.
+  }
+
+  return (
+    <div>
+      <p>Count: {counter}</p>
+      <br />
+      <button type="button" onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+```
+
 ### Communication between components
 
 ```jsx
